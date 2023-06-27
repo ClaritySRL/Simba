@@ -5,11 +5,8 @@
 }
 unit simba.matchtemplate_ccorr;
 
+{$DEFINE SIMBA_MAX_OPTIMIZATION}
 {$i simba.inc}
-
-{$IFOPT D-}
-  {$OPTIMIZATION LEVEL4}
-{$ENDIF}
 
 {$MODESWITCH ARRAYOPERATORS OFF}
 
@@ -155,7 +152,7 @@ var
   end;
 
 var
-  Tasks: TSimbaThreadPoolTasks;
+  //Tasks: TSimbaThreadPoolTaskArray;
   I: Integer;
 begin
   if (not (ACache is TMatchTemplateCache_CCORR)) then
@@ -169,11 +166,13 @@ begin
 
   if Length(Cache.Slices) > 1 then
   begin
+    {
     SetLength(Tasks, Length(Cache.Slices));
     for I := 0 to High(Tasks) do
-      Tasks[I] := TSimbaThreadPoolTask.Create(@DoMatchTemplate);
+      Tasks[I] := TSimbaThreadPoolTask_NestedMethod.Create(@DoMatchTemplate);
 
     SimbaThreadPool.RunParallel(Tasks);
+    }
   end else
     DoMatchTemplate(0);
 end;
