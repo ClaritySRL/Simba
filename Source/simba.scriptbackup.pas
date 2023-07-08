@@ -14,7 +14,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, ExtCtrls,
-  simba.scripttabsform, simba.mufasatypes, simba.files,
+  simba.scripttabsform, simba.mufasatypes, simba.env,
   simba.zip, simba.ide_initialization, simba.settings, simba.threading;
 
 type

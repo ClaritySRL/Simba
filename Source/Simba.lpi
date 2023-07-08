@@ -308,7 +308,7 @@
         <PackageName Value="LCL"/>
       </Item4>
     </RequiredPackages>
-    <Units Count="174">
+    <Units Count="175">
       <Unit0>
         <Filename Value="Simba.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -1080,6 +1080,10 @@
         <Filename Value="simba.integermatrix.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit173>
+      <Unit174>
+        <Filename Value="simba.files.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit174>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

@@ -29,11 +29,13 @@ type
     FSystemFontsLoaded: Boolean;
 
     procedure LoadSystemFonts;
+
+    function GetFontNames: TStringArray;
   public
     function LoadFonts(Dir: String): Boolean;
     function GetFont(AName: String; ASize: Single; AAntialised, ABold, AItalic: Boolean): TFreeTypeFont;
 
-    property FontNames: TStringArray read FFontNames;
+    property FontNames: TStringArray read GetFontNames;
   end;
 
   TSimbaTextDrawer = class(TFPImageFreeTypeDrawer)
@@ -85,6 +87,13 @@ implementation
 uses
   Forms, FileUtil, LazFileUtils, LazFreeTypeFontCollection,
   simba.bitmap;
+
+function TSimbaFreeTypeFontLoader.GetFontNames: TStringArray;
+begin
+  LoadSystemFonts();
+
+  Result := FFontNames;
+end;
 
 procedure TSimbaFreeTypeFontLoader.LoadSystemFonts;
 var

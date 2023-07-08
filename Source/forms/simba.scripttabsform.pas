@@ -103,7 +103,7 @@ implementation
 
 uses
   LCLType,
-  simba.mufasatypes, simba.files, simba.editor_docgenerator, simba.main,
+  simba.mufasatypes, simba.env, simba.editor_docgenerator, simba.main,
   simba.dockinghelpers, simba.nativeinterface, simba.outputform,
   simba.ide_events, simba.theme, simba.settings;
 
@@ -338,8 +338,7 @@ begin
 
   FFindEdit := TSimbaEdit.Create(Self);
   FFindEdit.Parent := FindEditPanel;
-  FFindEdit.Align := alClient;
-  FFindEdit.AnchorVerticalCenterTo(FindEditPanel);
+  FFindEdit.Align := alLeft;
   FFindEdit.BorderSpacing.Around := 5;
   FFindEdit.OnChange := @FindEditChange;
   FFindEdit.OnKeyDown := @FindButtonKeyDown;

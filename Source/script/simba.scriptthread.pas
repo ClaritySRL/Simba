@@ -58,7 +58,7 @@ uses
   cocoaall, cocoaint, cocoautils,
   {$ENDIF}
   forms, fileutil, lpmessages,
-  simba.files, simba.datetime, simba.script_communication;
+  simba.env, simba.datetime, simba.script_communication;
 
 procedure TSimbaScriptRunner.DebugLnGreen(S: String);
 begin
